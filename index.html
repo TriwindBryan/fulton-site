@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fulton: your home base for recomps, decomps and remakes</title>
+<meta name="description" content="Fulton is a free launcher for decompiled and recompiled retro game ports. Find ports, install them, keep them updated and play. Bring your own ROMs. Windows and Mac, Linux coming.">
+<meta property="og:title" content="Fulton: your home base for recomps, decomps and remakes">
+<meta property="og:description" content="A free launcher for decomp and recomp PC ports. Find, install, update and play. Bring your own ROMs.">
+<meta property="og:image" content="https://getfulton.app/img/find.webp">
+<meta property="og:url" content="https://getfulton.app/">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+:root{
+  --bg:#0e1118; --panel:#161b26; --panel2:#1b2230; --line:#2a3345; --text:#e8ecf4; --mute:#9aa6bd;
+  --accent:#2f8cff; --accent2:#5aa8ff; --heart:#ff6b81; --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background-image:radial-gradient(900px 500px at 15% -10%,rgba(47,140,255,.22),transparent 60%),radial-gradient(800px 500px at 100% 0%,rgba(90,60,200,.16),transparent 60%);background-repeat:no-repeat}
+a{color:var(--accent2)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+header.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--text);text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:8px}
+.nav a.link{color:var(--mute);text-decoration:none;margin-left:20px;font-size:15px}
+.nav a.link:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:650;text-decoration:none;border:1px solid transparent;font-size:16px;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 6px 24px rgba(47,140,255,.35)}
+.btn.primary:hover{background:#4a9bff}
+.btn.ghost{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn .heart{color:var(--heart)}
+.hero{padding:42px 0 26px;text-align:center}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(47,140,255,.12);border:1px solid rgba(47,140,255,.3);padding:5px 12px;border-radius:99px}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.08;margin:18px 0 14px;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,#5aa8ff,#b57bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:680px;margin:0 auto 26px;color:var(--mute);font-size:clamp(17px,2.2vw,20px)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.fine{color:var(--mute);font-size:14px;margin-top:14px}
+.shot{margin:34px auto 0;max-width:var(--maxw)}
+.shot img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55)}
+section{padding:54px 0}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 10px;letter-spacing:-.01em}
+.sub{color:var(--mute);margin:0 0 28px;max-width:680px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{margin:0;color:var(--mute);font-size:15px}
+.ico{font-size:22px;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:30px;align-items:center;margin-bottom:46px}
+.split.flip{grid-template-columns:1.15fr 1fr}
+.split.flip .txt{order:2}
+.split img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.split h3{font-size:24px;margin:0 0 8px}
+.split p{color:var(--mute);margin:0 0 10px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:10px}
+.steps b{display:block;margin-bottom:4px}
+.steps span{color:var(--mute);font-size:15px}
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dl .card.rec{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.dl .btn{margin-top:14px;width:100%;justify-content:center}
+.tag{display:inline-block;font-size:12px;border-radius:99px;padding:2px 9px;border:1px solid var(--line);color:var(--mute);margin-left:6px;vertical-align:middle}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:650}
+.faq p{color:var(--mute);margin:10px 0 0}
+.support{text-align:center;background:linear-gradient(135deg,rgba(47,140,255,.14),rgba(181,123,255,.12));border:1px solid var(--line);border-radius:18px;padding:36px 22px}
+footer{padding:36px 0 50px;color:var(--mute);font-size:14px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--mute)}
+@media(max-width:860px){
+  .grid,.dl{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .split,.split.flip{grid-template-columns:1fr}
+  .split.flip .txt{order:0}
+  .nav a.link{display:none}
+}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#top"><img src="img/icon.png" alt="" width="34" height="34">Fulton</a>
+    <nav>
+      <a class="link" href="#features">Features</a>
+      <a class="link" href="#download">Download</a>
+      <a class="link" href="#faq">FAQ</a>
+      <a class="btn ghost" style="padding:8px 14px;font-size:14px;margin-left:16px" href="https://ko-fi.com/triwind"><span class="heart">♥</span> Support</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <span class="eyebrow">Free · Windows &amp; Mac · Linux coming</span>
+      <h1>Your home base for <span>recomps, decomps and remakes</span></h1>
+      <p class="lead">Fulton finds PC ports of classic games, downloads them from their official releases, keeps them updated and launches them. You bring your own ROMs. Fulton does the rest.</p>
+      <div class="cta">
+        <a class="btn primary" id="dl-main" href="https://github.com/TriwindBryan/fulton/releases/latest">Download Fulton</a>
+        <a class="btn ghost" href="#features">See what it does</a>
+      </div>
+      <p class="fine" id="dl-note">Free and open source. Windows 10/11 and Mac (Apple Silicon and Intel).</p>
+      <div class="shot"><img src="img/games.webp" alt="Fulton's Games page showing a shelf of installed ports with a game's details and Play button" width="1440" height="900"></div>
+    </div>
+
+    <section id="features">
+      <h2>Everything in one place</h2>
+      <p class="sub">No hunting through GitHub pages, no unzipping into random folders, no guessing which ROM goes where.</p>
+      <div class="grid">
+        <div class="card"><div class="ico">🔎</div><h3>Find more</h3><p>Browse ports for every console, filter by system, type, status and how recently they were updated, and add one to your shelf.</p></div>
+        <div class="card"><div class="ico">⬇️</div><h3>One-click install</h3><p>Fulton downloads the official release for your computer, installs it and sets it up. Saves are backed up before updates.</p></div>
+        <div class="card"><div class="ico">🎮</div><h3>ROMs handled for you</h3><p>Point Fulton at your ROM folders. It recognizes each game and puts the right file where the port expects it.</p></div>
+        <div class="card"><div class="ico">↑</div><h3>Stay up to date</h3><p>An Updates page shows what's new for the games you have. Update one, or update all.</p></div>
+        <div class="card"><div class="ico">🎨</div><h3>Make it yours</h3><p>Pick a color theme, use your own background picture and fade the edges. It looks the way you want.</p></div>
+        <div class="card"><div class="ico">🕹️</div><h3>Controller friendly</h3><p>Move around with a gamepad, and add games to Steam so they show up in your Steam library.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="split">
+        <div class="txt">
+          <h3>Find ports for every console</h3>
+          <p>From N64 and GameCube to Wii, PlayStation and Xbox 360. See which ports have a Windows or Mac download, and how fresh each one is.</p>
+          <p>Ports come from the community catalog and Recompendium.</p>
+        </div>
+        <img src="img/find.webp" alt="Find more page listing recomp ports with filters, a size slider and Add buttons" width="1440" height="900" loading="lazy">
+      </div>
+      <div class="split flip">
+        <div class="txt">
+          <h3>Looks like yours</h3>
+          <p>Choose a theme or build your own, drop in a background picture and fade in color from the corners. Panels follow your colors, so everything matches.</p>
+        </div>
+        <img src="img/customize.webp" alt="Fulton's Customize page with color themes, a background picture picker and edge fades" width="1440" height="900" loading="lazy">
+      </div>
+    </section>
+
+    <section>
+      <h2>How it works</h2>
+      <p class="sub">Four steps, and the last one is playing.</p>
+      <ol class="steps">
+        <li><b>Add a port</b><span>Open Find more and press Add on a game.</span></li>
+        <li><b>Install</b><span>Fulton downloads and sets it up from the official release.</span></li>
+        <li><b>Add your ROM</b><span>Drop it on the window, or point Fulton at your ROM folder once.</span></li>
+        <li><b>Play</b><span>Press Play. Fulton keeps it updated and backs up your saves.</span></li>
+      </ol>
+    </section>
+
+    <section id="download">
+      <h2>Download</h2>
+      <p class="sub">Fulton is free. Pick your system. Everything is on the project's GitHub releases page.</p>
+      <div class="dl">
+        <div class="card" id="card-win"><h3>Windows</h3><p>Windows 10 or 11, 64-bit. Get the <b>.msi installer</b> or the <b>portable .exe</b>.</p><p style="margin-top:8px;font-size:14px">Windows may say "Windows protected your PC" because Fulton isn't code-signed yet. Click <b>More info → Run anyway</b>.</p><a class="btn primary" href="https://github.com/TriwindBryan/fulton/releases/latest">Download for Windows</a></div>
+        <div class="card" id="card-mac"><h3>Mac</h3><p>Apple Silicon and Intel. Get the <b>.dmg</b> for your Mac, then drag Fulton to Applications.</p><p style="margin-top:8px;font-size:14px">The first time, open <b>System Settings → Privacy &amp; Security → Open Anyway</b>. Fulton isn't registered with Apple yet.</p><a class="btn primary" href="https://github.com/TriwindBryan/fulton/releases/latest">Download for Mac</a></div>
+        <div class="card" id="card-linux"><h3>Linux &amp; Steam Deck <span class="tag">coming soon</span></h3><p>An AppImage is being tested now. Follow the releases page to get it as soon as it's ready.</p><a class="btn ghost" href="https://github.com/TriwindBryan/fulton/releases">Watch releases</a></div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>Questions</h2>
+      <details><summary>Does Fulton include games or ROMs?</summary><p>No. Fulton comes with no games. You bring ROMs from your own copies, and Fulton downloads the ports from their official GitHub releases.</p></details>
+      <details><summary>Is it free?</summary><p>Yes. Fulton is free, and so are the core features. If you enjoy it you can support it on Ko-fi, which helps pay for things like code signing for Windows and Mac.</p></details>
+      <details><summary>Which games work?</summary><p>Decompilation and recompilation ports, and remakes: native PC versions built from the original game's code. Some need ROM files from your own console, and the label on each card says which. Many ports are Windows-only, and Fulton marks the ones without a Mac or Linux download.</p></details>
+      <details><summary>Why does Windows or my Mac warn me?</summary><p>Fulton isn't code-signed yet, because signing costs money every year. The warnings are expected for now. The steps above get you past them, and the project's code is public on GitHub if you want to look.</p></details>
+      <details><summary>Where do my files and saves go?</summary><p>Fulton keeps everything on your computer. It never moves or deletes your ROM files. Saves are backed up before updates and after you play.</p></details>
+      <details><summary>Who makes Fulton?</summary><p>Fulton is designed, tested and maintained by Triwind, a retro gamer of 40+ years. The code was written with the help of an AI assistant (Claude), and every feature, fix and release is decided and tested by Triwind.</p></details>
+    </section>
+
+    <section>
+      <div class="support">
+        <h2>Fulton is free, and it's made by one person</h2>
+        <p class="sub" style="margin-left:auto;margin-right:auto">If it saves you time, a Ko-fi donation helps keep it going and pays for signing, so Windows and Mac stop showing warnings.</p>
+        <a class="btn primary" href="https://ko-fi.com/triwind"><span class="heart" style="color:#fff">♥</span> Support Fulton on Ko-fi</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://github.com/TriwindBryan/fulton">GitHub</a> ·
+    <a href="https://github.com/TriwindBryan/fulton/releases">Releases</a> ·
+    <a href="https://ko-fi.com/triwind">Ko-fi</a><br>
+    Fulton is an independent project. It is not affiliated with Nintendo, Sony, Microsoft or any game's publisher, and it doesn't include any game or ROM. All names belong to their owners.
+  </footer>
+</div>
+<script>
+(function(){
+  try{
+    var p=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||navigator.userAgent||'';
+    var os=/Mac/i.test(p)?'mac':/Linux|X11/i.test(p)&&!/Android/i.test(navigator.userAgent)?'linux':/Win/i.test(p)?'win':'';
+    var main=document.getElementById('dl-main'),note=document.getElementById('dl-note');
+    if(os==='mac'){main.textContent='Download for Mac';note.textContent='Free and open source. Get the .dmg for your Mac (Apple Silicon or Intel).';document.getElementById('card-mac').classList.add('rec')}
+    else if(os==='win'){main.textContent='Download for Windows';note.textContent='Free and open source. Get the .msi installer or the portable .exe.';document.getElementById('card-win').classList.add('rec')}
+    else if(os==='linux'){main.textContent='Follow Linux progress';main.href='https://github.com/TriwindBryan/fulton/releases';note.textContent='The Linux version is being tested. Watch the releases page.';document.getElementById('card-linux').classList.add('rec')}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
